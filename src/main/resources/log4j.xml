@@ -7,7 +7,7 @@
     </Appenders>
     <Loggers>
         <Logger name="org.apache.log4j.xml" level="info"/>
-        <Logger name="org.mensah.lcs" level="info"/>
+        <Logger name="u.equations.lcs" level="info"/>
         <Root level="debug">
             <AppenderRef ref="STDOUT"/>
         </Root>

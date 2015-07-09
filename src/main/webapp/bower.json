@@ -1,8 +1,8 @@
 {
-  "name": "lcs-mensah-webapp",
+  "name": "lcs-jersey-webapp",
   "version": "0.0.0",
   "authors": [
-    "Mensah Alkebu-Lan <mensah.alkebulan@gmail.com>"
+    "U-Equations <u.equations@gmail.com>"
   ],
   "description": "simple HTTP­based server that can solve the Longest Common",
   "moduleType": [

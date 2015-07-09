@@ -24,6 +24,13 @@
         <processorPath useClasspath="true" />
         <module name="lcs-mensah-webapp" />
       </profile>
+      <profile default="false" name="Annotation profile for u-equations-webapp" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="u-equations-webapp" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="lcs-mensah-webapp" target="1.7" />

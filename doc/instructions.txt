@@ -2,7 +2,7 @@ Instructions for buliding and running:
 
 Make sure maven is installed on your machine.
 
-1.  cd to the lcs-mensah-webapp folder.
+1.  cd to the lcs-jersey-webapp folder.
 
 2.  can run web application on a Jetty 9 embedded server with the following command:
 
