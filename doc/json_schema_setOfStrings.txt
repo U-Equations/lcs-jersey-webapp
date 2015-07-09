@@ -1,0 +1,27 @@
+JSON schema for setOfStrings
+
+{
+
+  "type": "object",
+  "properties": {
+    "setOfStrings": {
+      "id": "setOfStrings",
+      "type": "array",
+"minItems": 2,
+"uniqueItems": true,
+      "items": {
+
+        "type": "object",
+
+"uniqueItems" : true,
+        "properties": {
+
+          "value": {
+            "id": "value",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

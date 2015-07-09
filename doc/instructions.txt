@@ -1,0 +1,13 @@
+Instructions for buliding and running:
+
+Make sure maven is installed on your machine.
+
+1.  cd to the lcs-mensah-webapp folder.
+
+2.  can run web application on a Jetty 9 embedded server with the following command:
+
+mvn clean jetty:run -P embed -e
+
+3.  point browser to the following url:
+
+http://localhost:8090/lcs

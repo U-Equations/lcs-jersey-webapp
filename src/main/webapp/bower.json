@@ -1,0 +1,27 @@
+{
+  "name": "lcs-mensah-webapp",
+  "version": "0.0.0",
+  "authors": [
+    "Mensah Alkebu-Lan <mensah.alkebulan@gmail.com>"
+  ],
+  "description": "simple HTTP­based server that can solve the Longest Common",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "lcs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "font-awesome": "~4.3.0",
+    "jquery.serializeJSON": "~2.6.1"
+  }
+}

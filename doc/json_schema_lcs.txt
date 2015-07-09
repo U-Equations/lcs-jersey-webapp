@@ -1,0 +1,27 @@
+JSON schema for lcs response
+
+{
+
+  "type": "object",
+  "properties": {
+    "lcs": {
+
+      "type": "array",
+"maxItems": 1,
+"uniqueItems": true,
+      "items": {
+
+        "type": "object",
+
+"uniqueItems" : true,
+        "properties": {
+
+          "value": {
+
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
