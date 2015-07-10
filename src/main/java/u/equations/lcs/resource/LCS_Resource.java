@@ -1,21 +1,27 @@
 package u.equations.lcs.resource;
 
-import u.equations.lcs.algorithm.LCSAlgorithmImpl;
-import u.equations.lcs.util.ListUniquenessImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import u.equations.lcs.algorithm.LCSAlgorithmImpl;
+import u.equations.lcs.util.ListUniquenessImpl;
 
 import javax.json.Json;
 import javax.json.JsonArray;
-import javax.json.JsonValue;
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
 import javax.json.JsonObject;
+import javax.json.JsonValue;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Root resource (exposed at "lcs" path)
+ *
+ * @author U-Equations
+ * @version $Id: $Id
  */
 @Path("/lcs")
 public class LCS_Resource implements LCS_Resource_Constants {
@@ -23,13 +29,19 @@ public class LCS_Resource implements LCS_Resource_Constants {
     private static final Logger logger = LoggerFactory
             .getLogger(LCS_Resource.class);
 
+    /**
+     * <p>processJSONArray.</p>
+     *
+     * @param jsonObject a {@link javax.json.JsonObject} object.
+     * @return a {@link javax.json.JsonObject} object.
+     */
     @POST
     @Produces({MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN})
     @Consumes(MediaType.APPLICATION_JSON)
     public JsonObject processJSONArray(JsonObject jsonObject) {
 
         JsonObject jsonObjectResponse = JSON_OBJECT_PROCESSING_ERROR_RESPONSE;
-        String lcsString = "";
+        String lcsString;
 
         logger.info("processing: " + jsonObject.toString());
 
@@ -44,14 +56,18 @@ public class LCS_Resource implements LCS_Resource_Constants {
         for (JsonValue value : jsonArray) {
             JsonObject object = (JsonObject) value;
             String string = object.getJsonString("value").getString();
+
+            if (string.equals("")) {
+                jsonObjectResponse = EMPTY_JSON_OBJECT_RESPONSE;
+                return jsonObjectResponse;
+            }
+
             stringList.add(string);
         }
 
         ListUniquenessImpl uniquenessImpl = new ListUniquenessImpl();
 
         if (uniquenessImpl.isUnique(stringList)) {
-
-            jsonObjectResponse = UNIQUE_JSON_OBJECT;
 
             LCSAlgorithmImpl lcsAlgorithm = new LCSAlgorithmImpl();
             lcsString = lcsAlgorithm.findLCS(stringList);

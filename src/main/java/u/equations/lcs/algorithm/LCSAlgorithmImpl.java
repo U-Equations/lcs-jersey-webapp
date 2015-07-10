@@ -1,30 +1,37 @@
 package u.equations.lcs.algorithm;
 
-import u.equations.lcs.util.SuffixArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import u.equations.lcs.util.SuffixArray;
 
 import java.util.List;
 
 /**
  * Created by parallels on 7/8/15.
+ *
+ * @author U-Equations
+ * @version $Id: $Id
  */
 public class LCSAlgorithmImpl implements LCSAlgorithmImplIF {
 
     private static final Logger logger = LoggerFactory
             .getLogger(LCSAlgorithmImpl.class);
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String findLCS(List<String> listOfStrings) {
 
         String compareString = listOfStrings.iterator().next();
-        String LCS = "";
+        String LCS;
 String LCSTemp = "";
 
         for (String setString : listOfStrings) {
 
             LCSTemp = findLCSFromPair(compareString, setString);
             logger.info("LCSTemp: " + LCSTemp);
+            compareString = LCSTemp;
         }
         logger.info(LCSTemp);
         LCS = LCSTemp;
